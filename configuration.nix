@@ -46,12 +46,7 @@
   };
   programs.zsh.enable = true;
 
-  environment.systemPackages = with pkgs; [
-    vim
-    # Language servers
-    clang-tools
-    lua-language-server
-  ];
+  environment.systemPackages = with pkgs; [ vim ];
   environment.variables.EDITOR = "vim";
 
   # Enable the OpenSSH daemon.
