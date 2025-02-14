@@ -1,6 +1,6 @@
-{ config, pkgs, thecomet-nvim, ... }:
+{ config, pkgs, ... }:
 {
-  xdg.configFile."nvim".source = thecomet-nvim;
+  xdg.configFile."nvim".source = ./nvim-config;
 
   home = {
     username = "thecomet";
@@ -30,6 +30,43 @@
         gcc     # Treesitter
         unzip   # Mason needs to unzip clangd
         ripgrep # Telescope
+        python3 # justifier.py
+      ];
+      plugins = with pkgs.vimPlugins; [
+        cmake-tools-nvim
+        conflict-marker-vim
+        fugitive
+        harpoon
+        luasnip
+        #  nvim-cmp
+        #  cmp-nvim-lua
+        #  cmp-nvim-lsp
+        #  cmp-buffer
+        #  cmp_luasnip
+        #  cmp-luasnip-choice
+        mini-cursorword
+        mini-hipatterns
+        mini-splitjoin
+        mini-surround
+        multicursors-nvim
+        (nvim-treesitter.withPlugins (p: with p; [
+          awk asm c cpp csv disassembly git_config git_rebase gitattributes
+          gitcommit gitignore glsl hlsl json latex lua luadoc make markdown
+          nix passwd python regex rust sql ssh_config toml udev vim vimdoc xml
+          yaml
+        ]))
+        nvim-treesitter-context
+        rainbow-delimiters-nvim
+        telescope-nvim
+        telescope-undo-nvim
+        trouble-nvim
+        undotree
+        vim-tmux-navigator
+        which-key-nvim
+        # TODO:
+        #   FabijanZulj/blame.nvim
+        #   MysticalDevil/inlay-hints.nvim
+        #   FotiadisM/tabset.nvim
       ];
     };
 

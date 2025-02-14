@@ -40,24 +40,7 @@
     "root": {
       "inputs": {
         "home-manager": "home-manager",
-        "nixpkgs": "nixpkgs",
-        "thecomet-nvim": "thecomet-nvim"
-      }
-    },
-    "thecomet-nvim": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1739018987,
-        "narHash": "sha256-3iGCPBsd310Bp4DEgWei93T3WhCgvu5RwdkhGRHzTB4=",
-        "owner": "TheComet",
-        "repo": "nvim",
-        "rev": "e4a4ad34be6c19b334cedb7e457ac28508333a3d",
-        "type": "github"
-      },
-      "original": {
-        "owner": "TheComet",
-        "repo": "nvim",
-        "type": "github"
+        "nixpkgs": "nixpkgs"
       }
     }
   },
