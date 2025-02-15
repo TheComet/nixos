@@ -56,4 +56,3 @@ vim.api.nvim_create_autocmd("BufRead", {
     vim.bo.filetype = "c"
   end,
 })
-

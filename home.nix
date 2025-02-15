@@ -1,6 +1,9 @@
-{ config, pkgs, ... }:
+{ config, pkgs, pkgs-unstable, ... }:
 {
-  xdg.configFile."nvim".source = ./nvim-config;
+  xdg.configFile."nvim" = {
+    source = ./nvim-config;
+    recursive = true;
+  };
 
   home = {
     username = "thecomet";
@@ -33,36 +36,55 @@
         python3 # justifier.py
       ];
       plugins = with pkgs.vimPlugins; [
+        # Colorschemes
+        catppuccin-nvim
+        tokyonight-nvim
+        kanagawa-nvim
+        nightfox-nvim
+        nightfly
+
+        # C/C++
         cmake-tools-nvim
+        trouble-nvim
+
+        # Git
         conflict-marker-vim
         fugitive
+
+        # Misc
         harpoon
-        luasnip
-        #  nvim-cmp
-        #  cmp-nvim-lua
-        #  cmp-nvim-lsp
-        #  cmp-buffer
-        #  cmp_luasnip
-        #  cmp-luasnip-choice
         mini-cursorword
         mini-hipatterns
         mini-splitjoin
         mini-surround
         multicursors-nvim
+        rainbow-delimiters-nvim
+        undotree
+        vim-tmux-navigator
+        which-key-nvim
+
+        # Completion
+        luasnip
+        nvim-cmp
+        cmp-nvim-lua
+        cmp-nvim-lsp
+        cmp-buffer
+        cmp_luasnip
+
+        # Treesitter
         (nvim-treesitter.withPlugins (p: with p; [
           awk asm c cpp csv disassembly git_config git_rebase gitattributes
           gitcommit gitignore glsl hlsl json latex lua luadoc make markdown
           nix passwd python regex rust sql ssh_config toml udev vim vimdoc xml
           yaml
         ]))
-        nvim-treesitter-context
-        rainbow-delimiters-nvim
+        # Enable/Disable toggle not fixed in 24.11
+        pkgs-unstable.vimPlugins.nvim-treesitter-context
+
+        # Telescope
         telescope-nvim
         telescope-undo-nvim
-        trouble-nvim
-        undotree
-        vim-tmux-navigator
-        which-key-nvim
+
         # TODO:
         #   FabijanZulj/blame.nvim
         #   MysticalDevil/inlay-hints.nvim

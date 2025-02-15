@@ -32,4 +32,3 @@ vim.keymap.set("n", "gp", "`[v`]")
 
 -- Toggle relative/absolute line numbers
 vim.keymap.set("n", "<leader>l", "<CMD>set relativenumber!<CR>")
-
